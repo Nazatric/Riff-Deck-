@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toStartOf="@id/durationGuideline"
         app:layout_constraintStart_toEndOf="@id/progressGuideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/playPauseButton"
+        app:layout_constraintBottom_toTopOf="@+id/transportRow"
         tools:progress="50" />
 
     <!-- LCD-style remaining time readout -->
@@ -114,7 +114,7 @@
         android:fontFamily="monospace"
         android:textColor="#6B7280"
         android:textSize="10sp"
-        app:layout_constraintTop_toBottomOf="@+id/playPauseButton"
+        app:layout_constraintTop_toBottomOf="@+id/transportRow"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="@tools:sample/lorem"/>
 
