@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Base (unqualified) fallback definitions for tokens that were previously
+  ~ only defined in values-v31 / values-night-v31. On API 26-30 devices
+  ~ (below minSdk's dynamic-color threshold) those qualified files never
+  ~ apply, which left @color/splash_color_1..4 and @color/m3_accent_color /
+  ~ m3_selection_color completely undefined for those devices — a
+  ~ pre-existing resource-resolution crash risk in the upstream codebase.
+  ~ This file fixes that and sets the RiffDeck chrome/neon palette as the
+  ~ universal default (not wallpaper-derived Monet colors).
+  -->
+<resources>
+    <color name="m3_accent_color">#FF5A6E</color>
+    <color name="m3_selection_color">#FFB020</color>
+
+    <color name="splash_color_1">#15171B</color>
+    <color name="splash_color_2">#3B4048</color>
+    <color name="splash_color_3">#AEB6C2</color>
+    <color name="splash_color_4">#FF5A6E</color>
+</resources>

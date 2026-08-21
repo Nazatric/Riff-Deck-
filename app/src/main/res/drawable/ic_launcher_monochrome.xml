@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Monochrome silhouette for Android 13+ themed icons — same EQ-bar mark as
+  ic_launcher_foreground.xml, single solid color (the system applies its own
+  tint at runtime).
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M26,58 L31,58 L31,72 L26,72 Z M34,48 L39,48 L39,72 L34,72 Z M42,40 L47,40 L47,72 L42,72 Z M50,36 L55,36 L55,72 L50,72 Z M58,40 L63,40 L63,72 L58,72 Z M66,46 L71,46 L71,72 L66,72 Z M74,54 L79,54 L79,72 L74,72 Z"/>
+</vector>

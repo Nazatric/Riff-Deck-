@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2024 Christians Martínez Alvarado
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package com.riffdeck.player.core.model.theme
+
+import android.content.Context
+import androidx.annotation.StyleRes
+import androidx.appcompat.view.ContextThemeWrapper
+import androidx.core.content.ContextCompat
+import com.google.android.material.color.DynamicColors
+import com.riffdeck.player.R
+import com.riffdeck.player.util.GeneralTheme
+import com.riffdeck.player.util.Preferences
+
+class AppTheme private constructor(
+    val id: String,
+    @StyleRes
+    val themeRes: Int,
+    val applyDynamicColors: Boolean,
+    val seedColor: Int? = null
+) {
+
+    val isBlackTheme: Boolean
+        get() = id == GeneralTheme.BLACK
+
+    enum class Mode(@StyleRes val themeRes: Int) {
+        Light(R.style.Theme_RiffDeck_Light),
+        Dark(R.style.Theme_RiffDeck),
+        Black(R.style.Theme_RiffDeck_Black),
+        FollowSystem(R.style.Theme_RiffDeck_FollowSystem)
+    }
+
+    companion object {
+        fun createAppTheme(context: Context): AppTheme {
+            val generalTheme = Preferences.generalTheme
+            val themeMode = Preferences.getThemeMode(generalTheme)
+            if (DynamicColors.isDynamicColorAvailable()) {
+                if (Preferences.isMaterialYouTheme) {
+                    return AppTheme(
+                        id = generalTheme,
+                        themeRes = themeMode.themeRes,
+                        applyDynamicColors = true
+                    )
+                }
+                if (context is ContextThemeWrapper) {
+                    return AppTheme(
+                        id = generalTheme,
+                        themeRes = themeMode.themeRes,
+                        applyDynamicColors = true,
+                        seedColor = ContextCompat.getColor(context, R.color.md_theme_primary)
+                    )
+                }
+            }
+            return AppTheme(
+                id = generalTheme,
+                themeRes = themeMode.themeRes,
+                applyDynamicColors = false
+            )
+        }
+    }
+}

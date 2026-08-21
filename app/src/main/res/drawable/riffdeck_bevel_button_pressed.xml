@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Light bottom-right edge (inverted from raised state) -->
+    <item android:top="1dp" android:left="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#AEB6C2"/>
+        </shape>
+    </item>
+    <!-- Main button face, slightly darker than raised to read as "pushed in" -->
+    <item android:bottom="1dp" android:right="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#2A2E35"/>
+        </shape>
+    </item>
+    <!-- Dark top-left inset edge -->
+    <item android:bottom="1dp" android:right="1dp">
+        <shape android:shape="rectangle">
+            <stroke android:width="1dp" android:color="#15171B"/>
+        </shape>
+    </item>
+</layer-list>

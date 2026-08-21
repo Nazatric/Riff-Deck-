@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ RiffDeck deliberately does NOT use Android 12+ wallpaper-derived dynamic
+  ~ color (Monet) here — the whole point of the skeuomorphic design is a
+  ~ fixed chrome/brushed-metal/neon identity that doesn't shift with the
+  ~ user's wallpaper. These mirror values/riffdeck_base_colors.xml exactly.
+  -->
+<resources>
+    <color name="m3_accent_color">#FF5A6E</color>
+    <color name="m3_selection_color">#FFB020</color>
+
+    <color name="splash_color_1">#15171B</color>
+    <color name="splash_color_2">#3B4048</color>
+    <color name="splash_color_3">#AEB6C2</color>
+    <color name="splash_color_4">#FF5A6E</color>
+</resources>

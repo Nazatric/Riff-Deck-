@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.RiffDeck" parent="Base.Theme.RiffDeck"/>
+
+    <style name="Theme.RiffDeck.Light" parent="Base.Theme.RiffDeck.Light"/>
+
+    <style name="Theme.RiffDeck.Black" parent="Base.Theme.RiffDeck.Black"/>
+
+    <style name="Theme.RiffDeck.FollowSystem" parent="Base.Theme.RiffDeck.Adaptive"/>
+
+    <style name="Theme.RiffDeck.SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.RiffDeck.Expressive.Button" parent="Widget.Material3Expressive.Button">
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <style name="Widget.RiffDeck.Expressive.Button.Tonal" parent="Widget.Material3Expressive.Button.TonalButton">
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <style name="HomeActionButton" parent="Widget.Material3Expressive.Button">
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">2</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="backgroundTint">?colorSurfaceContainerLow</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="iconPadding">16dp</item>
+        <item name="iconTint">?colorOnSurface</item>
+    </style>
+
+    <style name="PlayerIconButton" parent="Widget.Material3Expressive.Button.IconButton.Standard">
+        <item name="iconGravity">textStart</item>
+        <item name="iconTint">?colorOnSurface</item>
+        <item name="rippleColor">?colorControlHighlight</item>
+    </style>
+
+    <!--
+      RiffDeck: a genuinely small, square, bevelled Winamp-style transport
+      button. Strips Material's default IconButton insets/min-touch-target
+      sizing (which normally enforces ~48dp regardless of the view's actual
+      layout_width/height) so the button can be as small and dense as the
+      classic hardware-player reference.
+    -->
+    <style name="RiffDeckBevelIconButton" parent="Widget.Material3Expressive.Button.IconButton.Standard">
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:background">@drawable/riffdeck_bevel_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="cornerRadius">0dp</item>
+    </style>
+
+    <!--
+      Dense monospace title-bar text, matching the small pixel-font title
+      bars of classic hardware/software media players rather than a large
+      Material app-bar title.
+    -->
+    <style name="RiffDeckToolbarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="PlayerIconButton.Medium">
+        <item name="iconSize">32dp</item>
+    </style>
+
+    <style name="PlayerIconButton.Large">
+        <item name="iconSize">64dp</item>
+    </style>
+
+    <style name="SearchChipStyle" parent="Widget.Material3.Chip.Filter">
+        <item name="android:checked">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipEndPadding">10dp</item>
+        <item name="chipMinHeight">40dp</item>
+        <item name="chipStartPadding">10dp</item>
+    </style>
+
+    <style name="MenuButtonStyle" parent="Widget.Material3Expressive.Button.IconButton.Standard">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:focusable">false</item>
+        <item name="icon">@drawable/ic_more_vert_24dp</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Material3.BottomSheet">
+        <item name="paddingBottomSystemWindowInsets">false</item>
+        <item name="android:maxWidth">@null</item>
+        <item name="shapeAppearance">?attr/shapeAppearanceCornerMedium</item>
+    </style>
+
+    <style name="ModalBottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">?colorSurfaceContainer</item>
+        <item name="shapeAppearance">?shapeAppearanceCornerLarge</item>
+    </style>
+
+    <style name="ModalBottomSheetStyle.EdgeToEdge">
+        <item name="paddingBottomSystemWindowInsets">false</item>
+    </style>
+
+    <style name="CircularShapeAppearance" parent="">
+        <item name="cornerSize">50%</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="Base.SquigglySlider" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressTint">?colorPrimary</item>
+        <item name="android:thumbTint">?colorPrimary</item>
+        <item name="android:progressBackgroundTint">?android:attr/textColorTertiary</item>
+        <item name="android:clickable">true</item>
+        <item name="android:splitTrack">false</item>
+        <item name="android:thumb">@drawable/squiggly_thumb</item>
+    </style>
+
+    <style name="SquigglySlider" parent="Base.SquigglySlider">
+        <item name="android:progressDrawable">@drawable/media_squiggly_progress</item>
+    </style>
+
+</resources>

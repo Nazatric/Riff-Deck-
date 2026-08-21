@@ -1,0 +1,7 @@
+# Build files
+/build
+
+# Release output files
+/release
+/normal
+/fdroid

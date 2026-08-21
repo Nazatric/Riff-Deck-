@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Classic Winamp-style raised bevel button: light edge top-left, dark edge
+  bottom-right, giving a pressed-hardware look rather than a flat Material
+  ripple surface. Selector swaps to the inset/pressed variant on press.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/riffdeck_bevel_button_pressed"/>
+    <item android:drawable="@drawable/riffdeck_bevel_button_raised"/>
+</selector>

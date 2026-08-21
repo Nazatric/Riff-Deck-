@@ -1,0 +1,70 @@
+package com.riffdeck.player.core
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.riffdeck.player.data.local.room.*
+
+@Database(
+    entities = [
+        PlaylistEntity::class,
+        SongEntity::class,
+        HistoryEntity::class,
+        PlayCountEntity::class,
+        QueueEntity::class,
+        InclExclEntity::class,
+        LyricsEntity::class,
+        ArtistInfoEntity::class
+    ],
+    version = 6,
+    exportSchema = false
+)
+abstract class RiffDeckDatabase : RoomDatabase() {
+    abstract fun playlistDao(): PlaylistDao
+    abstract fun playCountDao(): PlayCountDao
+    abstract fun historyDao(): HistoryDao
+    abstract fun queueDao(): QueueDao
+    abstract fun inclExclDao(): InclExclDao
+    abstract fun lyricsDao(): LyricsDao
+    abstract fun artistInfoDao(): ArtistInfoDao
+
+    companion object {
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE PlaylistEntity ADD COLUMN custom_cover_uri TEXT")
+                db.execSQL("ALTER TABLE PlaylistEntity ADD COLUMN description TEXT")
+            }
+        }
+
+        val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `QueueEntity` (`id` TEXT NOT NULL, `order` INTEGER NOT NULL, PRIMARY KEY(`id`))")
+            }
+        }
+
+        val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `CanvasEntity` (`id` INT NOT NULL, `canvas_url` TEXT NOT NULL, `fetch_time` INT NOT NULL, PRIMARY KEY(`id`))")
+            }
+        }
+
+        val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS CanvasEntity")
+            }
+        }
+
+        val MIGRATION_5_6 = object : Migration(5, 6) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS `ArtistInfoEntity` (" +
+                        "`artist_name` TEXT NOT NULL, " +
+                        "`biography` TEXT NOT NULL, " +
+                        "`fetched_at` INTEGER NOT NULL, " +
+                        "PRIMARY KEY(`artist_name`))"
+                )
+            }
+        }
+    }
+}

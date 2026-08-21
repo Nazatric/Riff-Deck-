@@ -1,0 +1,39 @@
+package com.riffdeck.player.data.remote.lyrics.api.lrclib
+
+import com.riffdeck.player.BuildConfig
+import com.riffdeck.player.data.model.Song
+import com.riffdeck.player.data.model.network.NetworkFeature
+import com.riffdeck.player.data.remote.lyrics.api.LyricsApi
+import com.riffdeck.player.data.remote.lyrics.model.DownloadedLyrics
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.http.encodeURLParameter
+import io.ktor.http.userAgent
+
+class LrcLibApi(private val client: HttpClient) : LyricsApi {
+
+    override val networkFeature = NetworkFeature.Lyrics.LRCLib
+
+    override suspend fun songLyrics(song: Song, title: String, artist: String): DownloadedLyrics? {
+        val lyrics = client.get("https://lrclib.net/api/search") {
+            userAgent("RiffDeck v${BuildConfig.VERSION_NAME} (https://github.com/Nazatric/Riff-Deck-)")
+            url.encodedParameters.append("q", "$artist $title".encodeURLParameter())
+            url.encodedParameters.append("album_name", song.albumName.encodeURLParameter())
+        }.body<List<DownloadedLyrics>>()
+        if (lyrics.isEmpty()) {
+            return null
+        } else {
+            val songDurationInSeconds = (song.duration / 1000).toDouble()
+            var matchingLyrics = lyrics.firstOrNull {
+                val maxValue = maxOf(songDurationInSeconds, it.durationInSeconds)
+                val minValue = minOf(songDurationInSeconds, it.durationInSeconds)
+                ((maxValue - minValue) < 2)
+            }
+            if (matchingLyrics == null) {
+                matchingLyrics = lyrics.first { !it.isSynced }
+            }
+            return matchingLyrics
+        }
+    }
+}

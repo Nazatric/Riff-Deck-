@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/riffdeck_chassis_bg"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/blur"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/radial_gradient"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        tools:src="@tools:sample/backgrounds/scenic"/>
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/riffdeck_brushed_metal_bg"
+        android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+        android:elevation="0dp"
+        app:navigationIcon="@drawable/ic_keyboard_arrow_down_24dp"
+        app:navigationIconTint="#EFF3F8"
+        app:titleTextColor="#EFF3F8"
+        app:titleTextAppearance="@style/RiffDeckToolbarTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:menu="@menu/menu_now_playing"/>
+
+    <!-- Riveted brushed-metal panel holding the "vinyl" album art -->
+    <FrameLayout
+        android:id="@+id/vinylPanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/riffdeck_brushed_metal_bg"
+        android:padding="18dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/playerAlbumCoverFragment"
+            android:name="com.riffdeck.player.ui.screen.player.cover.CoverPagerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_album_cover_default" />
+
+        <!-- Corner rivets -->
+        <ImageView android:layout_width="8dp" android:layout_height="8dp"
+            android:layout_gravity="top|start" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+        <ImageView android:layout_width="8dp" android:layout_height="8dp"
+            android:layout_gravity="top|end" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+        <ImageView android:layout_width="8dp" android:layout_height="8dp"
+            android:layout_gravity="bottom|start" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+        <ImageView android:layout_width="8dp" android:layout_height="8dp"
+            android:layout_gravity="bottom|end" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+
+    </FrameLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:textAppearance="?textAppearanceHeadline6"
+        android:textColor="#F2F3F5"
+        app:layout_constraintTop_toBottomOf="@id/vinylPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@tools:sample/lorem/random" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textAppearance="?textAppearanceBody1"
+        android:textColor="#A7ADB8"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@tools:sample/lorem/random" />
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/visualizerPanel"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:background="#0B0C0E" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/playbackControlsFragment"
+        android:name="com.riffdeck.player.ui.screen.player.styles.riffdeck.RiffDeckPlayerControlsFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/visualizerPanel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout="@layout/fragment_riffdeck_player_playback_controls" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

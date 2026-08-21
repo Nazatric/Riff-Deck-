@@ -1,0 +1,21 @@
+RiFF Deck is a fast, offline local music player for Android with a rock/metal/Y2K skeuomorphic design — brushed steel panels, chrome transport controls, LCD-style readouts, and a spinning vinyl Now Playing screen, instead of another flat Material list.
+
+Enjoy your favorite songs with word-by-word synced lyrics, translated lyric support (TTML/LRC), and a Now Playing screen built around album art with a spinning vinyl centerpiece and riveted control panel.
+
+Fine-tune your listening with a built-in equalizer, ReplayGain, Audio Offload, and gapless playback for seamless transitions. Organize your music your way with smart playlists, customizable sorting, and a hierarchical folder view.
+
+Main features:
+
+* Automatic lyric download and in-app lyric editor
+* Word-by-word and translated lyrics (TTML, LRC)
+* Media3-based playback engine with audio offload support
+* Bit-perfect playback support and native ALAC decoding
+* Native ListenBrainz scrobbling
+* Adaptive mini player and gesture controls
+* Custom covers and descriptions for playlists
+* Tag editor with instant library updates
+* Smart auto playlists (Recently Played, Most Played, History)
+* Sleep timer, widgets, and Android Auto support
+* Rock/metal/Y2K skeuomorphic theming, always dark
+* Multi-language support
+* Lightweight, open-source, and ad-free

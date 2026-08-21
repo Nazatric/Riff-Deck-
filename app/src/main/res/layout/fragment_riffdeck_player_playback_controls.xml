@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playback_controls"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:paddingHorizontal="14dp"
+    android:paddingBottom="10dp">
+
+    <!-- Riveted brushed-metal transport panel -->
+    <FrameLayout
+        android:id="@+id/transportPanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/riffdeck_brushed_metal_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView android:layout_width="6dp" android:layout_height="6dp"
+            android:layout_gravity="top|start" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+        <ImageView android:layout_width="6dp" android:layout_height="6dp"
+            android:layout_gravity="top|end" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+        <ImageView android:layout_width="6dp" android:layout_height="6dp"
+            android:layout_gravity="bottom|start" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+        <ImageView android:layout_width="6dp" android:layout_height="6dp"
+            android:layout_gravity="bottom|end" android:layout_margin="6dp"
+            android:src="@drawable/riffdeck_rivet" android:importantForAccessibility="no"/>
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/progressGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="44dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/durationGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="44dp"/>
+
+    <!-- LCD-style elapsed time readout, tighter/denser than before -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/songCurrentProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/riffdeck_lcd_bg"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="1dp"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:minWidth="40dp"
+        android:singleLine="true"
+        android:textColor="#4CFFB0"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progressGuideline"
+        tools:text="00:22"/>
+
+    <com.riffdeck.player.ui.component.views.MusicSlider
+        android:id="@+id/progressSlider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toStartOf="@id/durationGuideline"
+        app:layout_constraintStart_toEndOf="@id/progressGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/playPauseButton"
+        tools:progress="50" />
+
+    <!-- LCD-style remaining time readout -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/songTotalTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/riffdeck_lcd_bg"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="1dp"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:minWidth="40dp"
+        android:singleLine="true"
+        android:textColor="#FFB020"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/durationGuideline"
+        tools:text="03:41"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/songInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:freezesText="true"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="6dp"
+        android:fontFamily="monospace"
+        android:textColor="#6B7280"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@+id/playPauseButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="@tools:sample/lorem"/>
+
+    <!-- Dense Winamp-style transport row: small bevelled square buttons
+         tightly packed, chrome play button as the one larger centerpiece. -->
+    <LinearLayout
+        android:id="@+id/transportRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/progressSlider"
+        app:layout_constraintBottom_toTopOf="@+id/songInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/repeatButton"
+            style="@style/RiffDeckBevelIconButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="6dp"
+            app:icon="@drawable/ic_repeat_24dp"
+            app:iconTint="#A7ADB8"
+            android:contentDescription="@string/action_cycle_repeat"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/previousButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/riffdeck_bevel_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_previous_24dp"
+            app:tint="#EFF3F8"
+            android:contentDescription="@string/action_previous"/>
+
+        <!-- Chrome convex play/pause button — the one deliberately larger
+             centerpiece control, echoing the amp-style indicator light
+             language used on the Now Playing screen. -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/playPauseButton"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="4dp"
+            android:importantForAccessibility="no"
+            app:backgroundTint="@android:color/transparent"
+            android:background="@drawable/riffdeck_chrome_button_bg"
+            app:tint="#15171B"
+            app:elevation="4dp"
+            app:fabCustomSize="52dp"
+            app:maxImageSize="26dp"
+            app:srcCompat="@drawable/ic_pause_24dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/riffdeck_bevel_button"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_next_24dp"
+            app:tint="#EFF3F8"
+            android:contentDescription="@string/action_next"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shuffleButton"
+            style="@style/RiffDeckBevelIconButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="6dp"
+            app:icon="@drawable/ic_shuffle_24dp"
+            app:iconTint="#A7ADB8"
+            android:contentDescription="@string/action_toggle_shuffle"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

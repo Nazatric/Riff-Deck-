@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.RiffDeck" parent="Theme.Material3Expressive.Dark.NoActionBar">
+        <item name="windowActionModeOverlay">true</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="popupMenuBackground">@drawable/popupmenu_background</item>
+        <item name="popupMenuStyle">@style/MaterialPopupMenuStyle</item>
+        <item name="popupWindowStyle">@style/MaterialPopupMenuStyle</item>
+        <item name="materialButtonStyle">@style/Widget.RiffDeck.Expressive.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.RiffDeck.Expressive.Button.Tonal</item>
+        <item name="homeAsUpIndicator">@drawable/ic_back_24dp</item>
+    </style>
+
+    <style name="Base.Theme.RiffDeck.Light" parent="Theme.Material3Expressive.Light.NoActionBar">
+        <item name="windowActionModeOverlay">true</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="popupMenuBackground">@drawable/popupmenu_background</item>
+        <item name="popupMenuStyle">@style/MaterialPopupMenuStyle</item>
+        <item name="popupWindowStyle">@style/MaterialPopupMenuStyle</item>
+        <item name="materialButtonStyle">@style/Widget.RiffDeck.Expressive.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.RiffDeck.Expressive.Button.Tonal</item>
+        <item name="homeAsUpIndicator">@drawable/ic_back_24dp</item>
+    </style>
+
+    <style name="Base.Theme.RiffDeck.Adaptive" parent="@style/Theme.Material3Expressive.DayNight.NoActionBar">
+        <item name="windowActionModeOverlay">true</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="popupMenuBackground">@drawable/popupmenu_background</item>
+        <item name="popupMenuStyle">@style/MaterialPopupMenuStyle</item>
+        <item name="popupWindowStyle">@style/MaterialPopupMenuStyle</item>
+        <item name="materialButtonStyle">@style/Widget.RiffDeck.Expressive.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.RiffDeck.Expressive.Button.Tonal</item>
+        <item name="homeAsUpIndicator">@drawable/ic_back_24dp</item>
+    </style>
+
+    <style name="Theme.RiffDeck.SplashScreen" parent="Theme.SplashScreen">
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/avd_splash</item>
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+    </style>
+
+    <style name="Theme.AppWidget" parent="@style/Theme.Material3Expressive.DynamicColors.DayNight"/>
+
+</resources>

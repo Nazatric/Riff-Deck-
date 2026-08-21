@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Media Center-style focus glow for library grid tiles: instead of a subtle
+  Material ripple, pressed/activated tiles get a strong neon-red glowing
+  border — echoing the 10-foot "big glowing highlight" navigation language
+  of Windows Media Center, where the focused tile is unmistakable from
+  across the room.
+-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="#66FF5A6E">
+
+    <item android:id="@android:id/mask">
+        <shape>
+            <corners android:radius="@dimen/m3_card_corner_radius" />
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+    <item>
+        <selector>
+            <item android:state_activated="true">
+                <shape>
+                    <corners android:radius="@dimen/m3_card_corner_radius" />
+                    <stroke android:width="2dp" android:color="#FF5A6E" />
+                    <solid android:color="#33FF5A6E" />
+                </shape>
+            </item>
+            <item android:state_pressed="true">
+                <shape>
+                    <corners android:radius="@dimen/m3_card_corner_radius" />
+                    <stroke android:width="2dp" android:color="#FFB020" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>

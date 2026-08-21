@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ RiffDeck rock/metal/Y2K palette.
+  ~ Replaces the original Material You blue-grey tokens with chrome,
+  ~ brushed-steel, and neon-accent colors. RiffDeck is dark-only, so this
+  ~ file (values-night) is the single source of truth for theme colors —
+  ~ see App.kt, which forces MODE_NIGHT_YES at startup.
+  -->
+
+<resources>
+    <!-- Primary: neon red accent (chrome/amp indicator light) -->
+    <color name="md_theme_primary">#FF5A6E</color>
+    <color name="md_theme_onPrimary">#3A0008</color>
+    <color name="md_theme_primaryContainer">#7A1220</color>
+    <color name="md_theme_onPrimaryContainer">#FFD9DC</color>
+
+    <!-- Secondary: chrome/steel -->
+    <color name="md_theme_secondary">#AEB6C2</color>
+    <color name="md_theme_onSecondary">#1E2126</color>
+    <color name="md_theme_secondaryContainer">#3B4048</color>
+    <color name="md_theme_onSecondaryContainer">#EFF3F8</color>
+
+    <!-- Tertiary: amp-amber accent -->
+    <color name="md_theme_tertiary">#FFB020</color>
+    <color name="md_theme_onTertiary">#3A2600</color>
+    <color name="md_theme_tertiaryContainer">#6B4A00</color>
+    <color name="md_theme_onTertiaryContainer">#FFE4B0</color>
+
+    <color name="md_theme_error">#FF6E7A</color>
+    <color name="md_theme_onError">#3A0008</color>
+    <color name="md_theme_errorContainer">#93000A</color>
+    <color name="md_theme_onErrorContainer">#FFDAD6</color>
+
+    <!-- Gunmetal background/surface stack -->
+    <color name="md_theme_background">#15171B</color>
+    <color name="md_theme_onBackground">#F2F3F5</color>
+    <color name="md_theme_surface">#15171B</color>
+    <color name="md_theme_onSurface">#F2F3F5</color>
+    <color name="md_theme_surfaceVariant">#2A2E35</color>
+    <color name="md_theme_onSurfaceVariant">#A7ADB8</color>
+    <color name="md_theme_outline">#565D68</color>
+    <color name="md_theme_outlineVariant">#3B4048</color>
+    <color name="md_theme_scrim">#000000</color>
+
+    <color name="md_theme_inverseSurface">#F2F3F5</color>
+    <color name="md_theme_inverseOnSurface">#1E2126</color>
+    <color name="md_theme_inversePrimary">#B3122A</color>
+
+    <color name="md_theme_primaryFixed">#FFD9DC</color>
+    <color name="md_theme_onPrimaryFixed">#3A0008</color>
+    <color name="md_theme_primaryFixedDim">#FF5A6E</color>
+    <color name="md_theme_onPrimaryFixedVariant">#7A1220</color>
+
+    <color name="md_theme_secondaryFixed">#EFF3F8</color>
+    <color name="md_theme_onSecondaryFixed">#1E2126</color>
+    <color name="md_theme_secondaryFixedDim">#AEB6C2</color>
+    <color name="md_theme_onSecondaryFixedVariant">#3B4048</color>
+
+    <color name="md_theme_tertiaryFixed">#FFE4B0</color>
+    <color name="md_theme_onTertiaryFixed">#3A2600</color>
+    <color name="md_theme_tertiaryFixedDim">#FFB020</color>
+    <color name="md_theme_onTertiaryFixedVariant">#6B4A00</color>
+
+    <color name="md_theme_surfaceDim">#101215</color>
+    <color name="md_theme_surfaceBright">#3B4048</color>
+    <color name="md_theme_surfaceContainerLowest">#0B0C0E</color>
+    <color name="md_theme_surfaceContainerLow">#1A1D22</color>
+    <color name="md_theme_surfaceContainer">#1E2126</color>
+    <color name="md_theme_surfaceContainerHigh">#2A2E35</color>
+    <color name="md_theme_surfaceContainerHighest">#3B4048</color>
+
+    <color name="radial_gradient_black_overlay">@color/eighty_percent_black_overlay</color>
+</resources>
